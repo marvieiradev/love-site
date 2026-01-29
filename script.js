@@ -2,13 +2,19 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Elementos
   const pages = document.querySelectorAll(".app-page");
-  const modals = document.querySelectorAll(".modal");
   const buttons = document.querySelectorAll("[data-action]");
-
-  // Inicializar modais como ocultos
-  modals.forEach((modal) => {
-    modal.style.display = "none";
-  });
+  const mainImage = document.getElementById("main-image");
+  const playPauseBtn = document.getElementById("playPauseBtn");
+  const progress = document.getElementById("progress");
+  const musicLabel = document.getElementById("music");
+  let isPlaying = false;
+  const music = {
+    title: "Djavan - Oceano",
+    audio: "music/oceano.mp3",
+  };
+  const imagens = ["img/casal1.webp", "img/casal2.webp"];
+  const audio = new Audio(music.audio);
+  let indiceAtual = 0;
 
   // Função para abrir página
   function openPage(pageId) {
@@ -21,11 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const targetPage = document.getElementById(pageId);
     if (targetPage) {
       targetPage.classList.add("active");
-      targetPage.classList.add("slide-in-right");
-
+      targetPage.classList.add("slide-up");
       // Remover classe de animação após conclusão
       setTimeout(() => {
-        targetPage.classList.remove("slide-in-right");
+        targetPage.classList.remove("slide-up");
       }, 300);
     }
   }
@@ -35,55 +40,40 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
-
-      const action = this.getAttribute("data-action");
       const target = this.getAttribute("data-target");
       openPage(target);
     });
   });
 
-  // Efeito de toque em botões (estilo app)
-  const allButtons = document.querySelectorAll("button");
-  allButtons.forEach((button) => {
-    button.addEventListener("touchstart", function () {
-      this.style.opacity = "0.8";
-    });
-
-    button.addEventListener("touchend", function () {
-      this.style.opacity = "1";
-    });
-  });
-
-  const audio = new Audio("img/music.mp3");
-
-  // Event listeners para o áudio
-  audio.addEventListener("timeupdate", updateProgress);
-
-  let isPlaying = false;
-  document
-    .getElementById("playPauseBtn")
-    .addEventListener("click", togglePlayPause);
-
-  function playSong() {
-    audio.loop = true;
-    audio.play();
+  function trocarImagem() {
+    indiceAtual = (indiceAtual + 1) % imagens.length;
+    mainImage.src = imagens[indiceAtual];
   }
 
+  setInterval(trocarImagem, 3500);
+
+  // Gerenciamento do player de áudio
+  audio.addEventListener("timeupdate", updateProgress);
+  playPauseBtn.addEventListener("click", togglePlayPause);
+
+  //Iniciar/pausar áudio
   function togglePlayPause() {
+    musicLabel.textContent = music.title;
     if (isPlaying) {
       audio.pause();
+      audio.currentTime = 0;
       playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
       isPlaying = false;
     } else {
       audio
         .play()
         .then(() => {
-          playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+          playPauseBtn.innerHTML = '<i class="fa-solid fa-stop"></i>';
           isPlaying = true;
         })
         .catch((error) => {
           console.error("Erro ao reproduzir áudio:", error);
-          playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+          playPauseBtn.innerHTML = '<i class="fa-solid fa-stop"></i>';
         });
     }
   }

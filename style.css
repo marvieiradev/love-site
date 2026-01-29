@@ -1,5 +1,5 @@
 /* Importação de fontes */
-@import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Courgette&family=Elsie:wght@400;900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 /* Reset CSS */
 * {
   margin: 0;
@@ -11,17 +11,12 @@
 :root {
   --primary: #ff010b;
   --dark: #121212;
-  --darkgray: #1e1e1e;
-  --light: #ecfccb;
-  --lightgray: #e6e6e6;
+  --darker: #0c0c0c;
   --white: #ffffff;
   --gray-300: #d1d5db;
   --gray-400: #9ca3af;
   --gray-700: #374151;
-  --green-500: #10b981;
-  --red-500: #ef4444;
 }
-
 /* Estilos base */
 html,
 body {
@@ -66,7 +61,7 @@ body {
 
 /* Cabeçalho das páginas */
 .page-header {
-  background-color: var(--dark);
+  background-color: var(--darker);
   padding: 8px;
   display: flex;
   align-items: center;
@@ -83,6 +78,11 @@ body {
   display: flex;
   gap: 16px;
   align-items: center;
+}
+
+.icon {
+  width: 20px;
+  height: auto;
 }
 
 .container {
@@ -115,8 +115,11 @@ body {
 
 /* Rodapé das páginas */
 .page-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 16px;
-  background-color: var(--dark);
+  background-color: var(--darker);
 }
 
 /* Botões */
@@ -144,7 +147,8 @@ body {
 
 /* Sobre */
 .main {
-  margin-bottom: 24px;
+  margin-bottom: 4px;
+  margin-top: 4px;
 }
 
 .main img {
@@ -172,7 +176,7 @@ body {
   font-family: "Agbalumo", system-ui;
   font-weight: 400;
   font-style: normal;
-  font-size: 48px;
+  font-size: 40px;
   color: var(--white);
   text-align: center;
 }
@@ -253,22 +257,17 @@ body {
 }
 
 .music {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--white);
-}
-
-.artist {
-  font-size: 20px;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 500;
   color: var(--white);
 }
 
 .player {
-  margin-top: 16px;
+  margin-top: 4px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   width: 100%;
   gap: 8px;
 }
@@ -289,7 +288,6 @@ body {
   background: rgba(255, 255, 255, 0.3);
   border-radius: 20px;
   overflow: hidden;
-  margin-bottom: 10px;
   cursor: pointer;
 }
 
@@ -313,7 +311,7 @@ body {
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.3s ease forwards;
+  animation: fadeIn 2.5s ease forwards;
 }
 
 @keyframes pulse {
@@ -328,8 +326,8 @@ body {
   }
 }
 
-.back-btn:active {
-  animation: pulse 0.3s ease;
+.pulse {
+  animation: pulse 0.5s ease infinite;
 }
 
 @keyframes slideInRight {
@@ -344,7 +342,7 @@ body {
 }
 
 .slide-in-right {
-  animation: slideInRight 0.3s ease forwards;
+  animation: slideInRight 1s ease forwards;
 }
 
 @keyframes slideOutRight {
@@ -359,7 +357,7 @@ body {
 }
 
 .slide-out-right {
-  animation: slideOutRight 0.3s ease forwards;
+  animation: slideOutRight 1s ease forwards;
 }
 
 @keyframes slideUp {
@@ -395,14 +393,14 @@ body {
 /* Animação para carregamento da página */
 .app-container {
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateX(10px);
   animation: appLoad 0.5s ease forwards 0.2s;
 }
 
 @keyframes appLoad {
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
@@ -421,21 +419,4 @@ body {
 .modal-content::-webkit-scrollbar-thumb {
   background: var(--primary);
   border-radius: 4px;
-}
-
-/* Utilitários */
-.mb-6 {
-  margin-bottom: 24px;
-}
-
-.space-y-6 > * + * {
-  margin-top: 24px;
-}
-
-.space-y-2 > * + * {
-  margin-top: 8px;
-}
-
-.alert {
-  background-color: var(--red-500) !important;
 }

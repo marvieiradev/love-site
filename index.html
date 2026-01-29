@@ -12,6 +12,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="img/ui/logo.svg" />
   </head>
   <body>
     <!-- Página Inicial (Home) -->
@@ -19,7 +20,7 @@
       <div class="container">
         <h1>Uma surpesa para você!</h1>
         <button
-          class="btn btn-primary"
+          class="btn btn-primary pulse"
           data-action="openPage"
           data-target="sobrePage"
         >
@@ -36,17 +37,17 @@
         <p>Filmes</p>
         <p>Séries</p>
         <div class="profile-icons">
-          <img src="img/ui/search.svg" alt="" />
-          <img src="img/ui/notification.svg" alt="" />
+          <img src="img/ui/search.svg" class="icon" alt="" />
+          <img src="img/ui/notification.svg" class="icon" alt="" />
           <img src="img/ui/profile.svg" alt="" />
         </div>
       </div>
 
       <!-- Conteúdo da Página -->
       <div class="page-content">
-        <div class="space-y-6">
-          <div class="main">
-            <img src="img/casal.webp" alt="" />
+        <div class="main">
+          <div class="animate-fade-in">
+            <img src="img/casal2.webp" id="main-image" alt="" />
             <div class="spacer"></div>
             <h1 class="names">Auri e Marcos</h1>
             <p class="love-phrase">
@@ -55,38 +56,38 @@
               sortuda do mundo todos os dias Você é o amor que sempre procurei e
               hoje agradeço por ter você na minha vida todos os dias.
             </p>
+          </div>
 
-            <div class="infos">
-              <div class="info-item">
-                <div class="info-square">12</div>
-                <p>12 DE JUNHO</p>
-              </div>
-              <div class="info-item">
-                <img src="img/ui/stars.svg" alt="" />
-                <p>2 TEMPORADAS</p>
-              </div>
+          <div class="infos slide-in-right">
+            <div class="info-item">
+              <div class="info-square">12</div>
+              <p>12 DE JUNHO</p>
             </div>
-
-            <div class="buttons">
-              <button class="btn btn-primary">
-                <i class="fa-solid fa-play"></i> Continuar
-              </button>
-              <button class="btn btn-secondary">
-                <i class="fa-solid fa-plus"></i> Minha Lista
-              </button>
+            <div class="info-item">
+              <img src="img/ui/stars.svg" alt="" />
+              <p>2 TEMPORADAS</p>
             </div>
+          </div>
 
-            <div class="moments">
-              <div class="moments-title">
-                <p>Nossos Melhores Momentos</p>
-                <div class="line"></div>
-              </div>
-              <div class="moments-grid">
-                <img src="img/01.webp" alt="" />
-                <img src="img/02.webp" alt="" />
-                <img src="img/03.webp" alt="" />
-                <img src="img/04.webp" alt="" />
-              </div>
+          <div class="buttons">
+            <button class="btn btn-primary">
+              <i class="fa-solid fa-play"></i> Continuar
+            </button>
+            <button class="btn btn-secondary">
+              <i class="fa-solid fa-plus"></i> Minha Lista
+            </button>
+          </div>
+
+          <div class="moments">
+            <div class="moments-title">
+              <p>Nossos Melhores Momentos</p>
+              <div class="line"></div>
+            </div>
+            <div class="moments-grid animate-slide-in-up">
+              <img src="img/01.webp" alt="" />
+              <img src="img/02.webp" alt="" />
+              <img src="img/03.webp" alt="" />
+              <img src="img/04.webp" alt="" />
             </div>
           </div>
         </div>
@@ -94,8 +95,7 @@
 
       <!-- Botão de Ação -->
       <div class="page-footer">
-        <span class="music">Djavan - </span>
-        <span class="artist">Te devoro</span>
+        <span class="music" id="music">Nossa Música</span>
         <div class="player">
           <button class="control-btn play-pause" id="playPauseBtn">
             <i class="fa-solid fa-play"></i>
