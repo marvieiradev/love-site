@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Nossa História</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Página Inicial (Home) -->
+    <div id="homePage" class="app-page active">
+      <div class="container">
+        <h1>Uma surpesa para você!</h1>
+        <button
+          class="btn btn-primary"
+          data-action="openPage"
+          data-target="sobrePage"
+        >
+          Clique aqui
+        </button>
+      </div>
+    </div>
+
+    <!-- Página Sobre -->
+    <div id="sobrePage" class="app-page">
+      <!-- Cabeçalho da Página -->
+      <div class="page-header">
+        <img src="img/ui/logo.svg" alt="" />
+        <p>Filmes</p>
+        <p>Séries</p>
+        <div class="profile-icons">
+          <img src="img/ui/search.svg" alt="" />
+          <img src="img/ui/notification.svg" alt="" />
+          <img src="img/ui/profile.svg" alt="" />
+        </div>
+      </div>
+
+      <!-- Conteúdo da Página -->
+      <div class="page-content">
+        <div class="space-y-6">
+          <div class="main">
+            <img src="img/casal.webp" alt="" />
+            <div class="spacer"></div>
+            <h1 class="names">Auri e Marcos</h1>
+            <p class="love-phrase">
+              A melhor parte do meu dia é o seu sorriso. Estar com você foi a
+              decisão mais fácil que tomei na vida e me sinto a pessoa mais
+              sortuda do mundo todos os dias Você é o amor que sempre procurei e
+              hoje agradeço por ter você na minha vida todos os dias.
+            </p>
+
+            <div class="infos">
+              <div class="info-item">
+                <div class="info-square">12</div>
+                <p>12 DE JUNHO</p>
+              </div>
+              <div class="info-item">
+                <img src="img/ui/stars.svg" alt="" />
+                <p>2 TEMPORADAS</p>
+              </div>
+            </div>
+
+            <div class="buttons">
+              <button class="btn btn-primary">
+                <i class="fa-solid fa-play"></i> Continuar
+              </button>
+              <button class="btn btn-secondary">
+                <i class="fa-solid fa-plus"></i> Minha Lista
+              </button>
+            </div>
+
+            <div class="moments">
+              <div class="moments-title">
+                <p>Nossos Melhores Momentos</p>
+                <div class="line"></div>
+              </div>
+              <div class="moments-grid">
+                <img src="img/01.webp" alt="" />
+                <img src="img/02.webp" alt="" />
+                <img src="img/03.webp" alt="" />
+                <img src="img/04.webp" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botão de Ação -->
+      <div class="page-footer">
+        <span class="music">Djavan - </span>
+        <span class="artist">Te devoro</span>
+        <div class="player">
+          <button class="control-btn play-pause" id="playPauseBtn">
+            <i class="fa-solid fa-play"></i>
+          </button>
+          <div class="progress-bar" id="progressBar">
+            <div class="progress" id="progress"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script para interatividade -->
+    <script src="script.js"></script>
+  </body>
+</html>
